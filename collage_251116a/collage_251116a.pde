@@ -1,3 +1,5 @@
+import gifAnimation.*;
+
 PImage dome;
 PImage Journey;
 PImage Moon;
@@ -9,7 +11,8 @@ PImage Skate;
 PImage Arizona;
 PImage Horse;
 PImage Ari;
-
+GifMaker gifExport;
+int totalFrames = 120;
 void setup() {
   size(700, 700);
   background (#ff00ff);
@@ -24,9 +27,10 @@ void setup() {
   Arizona = loadImage("20250516_204935.png"); 
   Horse = loadImage ("20231019_173715(1).png");
   Ari = loadImage ("20240428_184225(1).png");
-  
-  
-  
+  gifExport = new
+  GifMaker(this,"output.gif",100);
+  gifExport.setRepeat(0);
+  frameRate(30);
 }
 
 void draw() {
@@ -68,6 +72,15 @@ void draw() {
   translate(width/2, height/2);
   rotate(frameCount*0.1);
   image(nan, 0, 0, 150, 150);
+  
+  if (frameCount < totalFrames){
+    gifExport.addFrame();
+  } else if (frameCount ==
+  totalFrames){
+    gifExport.finish();
+    println("GIF saved!");
+    noLoop();
+  }
 }
 
 void hoverImage(PImage img, float x, float y, float speed, float h) {
