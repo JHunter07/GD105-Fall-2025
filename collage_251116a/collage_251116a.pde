@@ -1,4 +1,3 @@
-float move;
 PImage dome;
 PImage Journey;
 PImage Moon;
