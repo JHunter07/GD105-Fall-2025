@@ -6,30 +6,34 @@ PImage Guardian;
 PImage board;
 PImage nan;
 PImage Amingo;
-float g = 0.0;
-float inc = TWO_PI/25.0;
-float baseX, baseY;
-float floatAngle = 0 + 50.00;
+PImage Skate;
+PImage Arizona;
+PImage Horse;
+PImage Ari;
 
 void setup() {
   size(700, 700);
   background (#ff00ff);
+  imageMode(CENTER);
   dome = loadImage("20250804_002629.jpg");
   Journey = loadImage("20200801_185625(1).png");
   Guardian = loadImage("20251124_063538(1).png");
-  imageMode(CENTER);
   nan = loadImage("20251119_054603(1).png");
   board = loadImage("20201110_160811(1).png");
   Moon = loadImage("20230731_210206 (1).png");
   Amingo = loadImage("20251124_005639(1).png");
+  Arizona = loadImage("20250516_204935.png"); 
+  Horse = loadImage ("20231019_173715(1).png");
+  Ari = loadImage ("20240428_184225(1).png");
+  
+  
+  
 }
 
 void draw() {
   translate(width/2, height/2);
   image(dome, 0, 0, 700, 700);
   scale(0.5);
-  //image(skateboard,0,0,400,400);
-  //image(boarder,0,0,400,400);
   translate(504, 193);
   scale(2.0);
   image(Journey, 0, 0, 250, 250); // rabit
@@ -44,17 +48,24 @@ void draw() {
   resetMatrix();
   translate(399, 81);
   scale(0.1);
-  hoverImage(board, 0, 0, 0.03, 50);// board
-  //hovermyimage( 0,0);
+  hoverImage(board, 0, 0, 0.07, 50);// board
   resetMatrix();
   translate(77, 341);
   scale(0.05);
   hoverImage(Guardian, 0, 0, 0.03, 250);
-  //image(Guardian,x,cos(frameCount*.03)*height* .45);
   resetMatrix();
-
-  //imageMode(CENTER);
-  // translate(385,326);
+  translate(610, 167);
+  scale(0.1);
+  hoverImage(Arizona, 0, 0, 0.15, 50); // arizona can
+  resetMatrix();
+  translate(50, 527);
+  scale(2.0);
+  image(Horse, 0, 0, 45, 54); // horse
+  resetMatrix();
+  translate(362, 526);
+  scale(2.9);
+  image(Ari, 0, 0, 50, 50); // Cat
+  resetMatrix();
   translate(width/2, height/2);
   rotate(frameCount*0.1);
   image(nan, 0, 0, 150, 150);
