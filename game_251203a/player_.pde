@@ -5,22 +5,28 @@ class Player {
   Player() {
   }
   void display() {
+    background(0); // setting background to black
     circle (position.x, position.y, 50);
   }
-
   void movement()
   {
     if (up)
-    {position.y-=speed;
+    {
+      position.y-=speed;
     }
     if (left)
-    {position.x-=speed;
+    {
+      position.x-=speed;
     }
     if (down)
-    {position.y+=speed;
+    {
+      position.y+=speed;
     }
     if (right)
-    {position.x+=speed;
+    {
+      position.x+=speed;
     }
   }
 }
+
+// methods are jsut functions that inside of classes
