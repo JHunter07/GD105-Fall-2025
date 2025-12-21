@@ -1,17 +1,36 @@
 GameState mode = GameState.TITLE;
 boolean start;
+boolean shoot;
+//Projectile []  projectile = new Projectile[1];
+//float projectileUnit = 10;
+ArrayList <Bullet> bullets = new
+  ArrayList <Bullet>();
+float px = 200;
+float py=350;
+
 
 public enum GameState {
   TITLE, GAME, GAMEOVER
 }
 //PVector GameState;
 Player player;
+
+// [] means I'm creating an array
+// I now have an array of 10 enemies
+Enemy [] enemy = new Enemy[10];
 //GameState mode = GameState;
 //String gameState = game ;
 void setup() {
   size(700, 700);
   background(255);
   player = new Player();
+
+  // For loop is used to cycle through the array of enemies
+  for (int i = 0; i < enemy.length; i++)
+  {
+    enemy[i] = new Enemy(new PVector (random(200, 700), random(100, 700)));
+  }
+
   start =true;
   //gameState = 0;
 }
@@ -27,6 +46,13 @@ void draw () {
   case GAME:
     player.display();
     player.movement();
+    for (int i = 0; i < enemy.length; i++)
+    {
+      // Display all enemies in array with loop
+      enemy[i].display();
+      // Check for collision with all enemies in array
+     // player.collisionDetection(enemy[i]);
+    }
     //function(); // second scene that you want to happen
     break;
   case GAMEOVER:
@@ -35,9 +61,17 @@ void draw () {
   default:
     mode = GameState.TITLE;
   }
-  println(mode);
+  //println(mode);
 
   //println("DAFDSAF");
+  for (int i = bullets.size() -1; i >=
+    0; i--) {
+    Bullet b = bullets . get(i);
+    b.update();
+    b.display();
+    if (b.y<0);
+    bullets.remove(i);
+  }
 }
 
 
@@ -79,7 +113,15 @@ void keyPressed() {
   {
     //p == gameState 1;
   }
+
+  if (key == ' ')
+    shoot = true;
+  bullets.add(new Bullet(px, py));
+  //Projectile a = new projectile();
+  //projectile = (Projectile []) append ( projectile, a);
 }
+
+
 
 void keyReleased() {
   if (key == 'w')
@@ -97,6 +139,10 @@ void keyReleased() {
   if (key == 'd')
   {
     player.right=false;
+  }
+  {
+    if ( key == ' ')
+      shoot = false;
   }
 }
 void TitleScreen() {
