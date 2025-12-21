@@ -36,10 +36,10 @@ class Player {
     // Check distance between player and enemy
     // if dist is less than the sum of the player radius
     // and the enemy radius, collision has occurred
-  //  if (dist(position.x, position.y, e.position.x, e.position.y) < radius + e.radius)
+   if (dist(position.x, position.y, e.position.x, e.position.y) < radius + e.radius)
  //   {
       // if collision occurs, move that enemy off screen
-     // e.position.x = 5000;
+      e.position.x = 5000;
     }
   }
 

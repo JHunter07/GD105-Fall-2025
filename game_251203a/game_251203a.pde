@@ -51,7 +51,7 @@ void draw () {
       // Display all enemies in array with loop
       enemy[i].display();
       // Check for collision with all enemies in array
-     // player.collisionDetection(enemy[i]);
+       player.collisionDetection(enemy[i]);
     }
     //function(); // second scene that you want to happen
     break;
@@ -72,89 +72,97 @@ void draw () {
     if (b.y<0);
     bullets.remove(i);
   }
+  if (Bullet.hits(e.positionx, e.position.y,e.radius)) {
+    bullet.remove(i);
+    e = -500;
+    println("enemy destroyed");
+  }
+  // remove it off screen
+  else if (ty < 0) {
+    bullets.remove(i);
+  }
+
 }
 
+  void keyPressed() {
 
 
-void keyPressed() {
+    //if in title screen and space pressed, start game
+    if (key ==' ' && mode == GameState.TITLE) {
+      start =false;
+      mode = GameState.GAME;
+    }
+    //if O key pressed in game, game over
+    if (key == 'o' && mode == GameState.GAME) {
+      mode = GameState.GAMEOVER;
+    }
+    // if space is pressed and game over, go to title
+    if (key == ' ' && mode == GameState.GAMEOVER) {
+      start =true;
+      mode = GameState.TITLE;
+    }
+    if (key == 'w')
+    {
+      player.up=true;
+    }
+    if (key == 'a')
+    {
+      player.left=true;
+    }
+    if (key == 's')
+    {
+      player.down=true;
+    }
+    if (key == 'd')
+    {
+      player.right=true;
+    }
+    if (key == 'p')
+    {
+      //p == gameState 1;
+    }
 
-
-  //if in title screen and space pressed, start game
-  if (key ==' ' && mode == GameState.TITLE) {
-    start =false;
-    mode = GameState.GAME;
+    if (key == ' ')
+      shoot = true;
+    bullets.add(new Bullet(px, py));
+    //Projectile a = new projectile();
+    //projectile = (Projectile []) append ( projectile, a);
   }
-  //if O key pressed in game, game over
-  if (key == 'o' && mode == GameState.GAME) {
-    mode = GameState.GAMEOVER;
-  }
-  // if space is pressed and game over, go to title
-  if (key == ' ' && mode == GameState.GAMEOVER) {
-    start =true;
-    mode = GameState.TITLE;
-  }
-  if (key == 'w')
-  {
-    player.up=true;
-  }
-  if (key == 'a')
-  {
-    player.left=true;
-  }
-  if (key == 's')
-  {
-    player.down=true;
-  }
-  if (key == 'd')
-  {
-    player.right=true;
-  }
-  if (key == 'p')
-  {
-    //p == gameState 1;
-  }
-
-  if (key == ' ')
-    shoot = true;
-  bullets.add(new Bullet(px, py));
-  //Projectile a = new projectile();
-  //projectile = (Projectile []) append ( projectile, a);
-}
 
 
 
-void keyReleased() {
-  if (key == 'w')
-  {
-    player.up=false;
+  void keyReleased() {
+    if (key == 'w')
+    {
+      player.up=false;
+    }
+    if (key == 'a')
+    {
+      player.left=false;
+    }
+    if (key == 's')
+    {
+      player.down=false;
+    }
+    if (key == 'd')
+    {
+      player.right=false;
+    }
+    {
+      if ( key == ' ')
+        shoot = false;
+    }
   }
-  if (key == 'a')
-  {
-    player.left=false;
+  void TitleScreen() {
+    background(0);
+    fill(255);
+    textSize(40);
+    text ("Insert Game \n Title here", width/2 - 100, height/2);
   }
-  if (key == 's')
-  {
-    player.down=false;
-  }
-  if (key == 'd')
-  {
-    player.right=false;
-  }
-  {
-    if ( key == ' ')
-      shoot = false;
-  }
-}
-void TitleScreen() {
-  background(0);
-  fill(255);
-  textSize(40);
-  text ("Insert Game \n Title here", width/2 - 100, height/2);
-}
 
-void GameOver() {
-  background(0);
-  fill(255);
-  textSize(40);
-  text ("Game Over", width/2 - 100, height/2);
-}
+  void GameOver() {
+    background(0);
+    fill(255);
+    textSize(40);
+    text ("Game Over", width/2 - 100, height/2);
+  }

@@ -38,36 +38,15 @@ class Bullet {
     }
     return false;
   }
-  {
+  
     //collision occurs, move that enemy off screen
-    e.position.x = 4000;
-  }
-  void update() {
-    y-=10 ;
-  }
-  void display() {
+  
+  
+  void update() {y-=10;}
+  void display(){
     fill(255, 255, 0);
     ellipse(x, y, 10, 10);
     ellipse(x, y, r*2, r*2);
   }
-  //  void move() {
-  //    projectilePos.add(ProjectileVel);
-  //  }
-  //void collision() {
-  ////for (int i = 0; i < projectile.length; i++) {
-  //  for (int n = 0; n < opp.length; n++) {
-  //if (projectile [i], projectilePos.x + projectileUnit > enemy[n],enemyPos.x &&
-  //  projectile[i], projectile.x < enemy[n], enemyPos.x + enemyUnit &&
-  //  projectile[i], projectile.y < enemy[n], enemyPos.y + enemyUnit &&
-  //projectile[i], projectile.y, + projectileUnit > projectile enemy[n].opp.y) {
-  //enemy[n], oppPos.x += width;
-  //projectile [i], projectilePos.x -= width * 2;
-  //hitNum += 1;
-  //break;
-  //}
-  // }
-  // }
-  // }
-
-}
+  
 }
