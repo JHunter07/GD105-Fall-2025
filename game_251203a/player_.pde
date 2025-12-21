@@ -3,7 +3,13 @@ class Player {
   boolean up, down, left, right;
   float speed = 5;
   float radius = 25;
-  Player() {
+  int x;
+  int y;
+  int r;
+  Player(int playerPosX,int playerPosY,int playerPosR) {
+    x = playerPosX;
+    y = playerPosY;
+    r = playerPosR;
   }
   void display() {
     background(0); // setting background to black
@@ -32,15 +38,15 @@ class Player {
   // Passing e as a parameter means it is looking
   // for an Enemy object
  // void collisionDetection(Enemy e)
-  {
-    // Check distance between player and enemy
+ // {
+    //Check distance between player and enemy
     // if dist is less than the sum of the player radius
     // and the enemy radius, collision has occurred
-   if (dist(position.x, position.y, e.position.x, e.position.y) < radius + e.radius)
+ // if (dist(position.x, position.y, e.position.x, e.position.y) < radius + e.radius)
  //   {
       // if collision occurs, move that enemy off screen
-      e.position.x = 5000;
-    }
+     // e.position.x = 5000;
+   // }
   }
 
 
