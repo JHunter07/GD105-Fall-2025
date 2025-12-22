@@ -53,13 +53,19 @@ void draw () {
       if (b.y<0){
         bulletList.remove(i);
       }
+    //  for (n=0;n< bulletList.size()
+    // -1;i++) {
+    //   bulletList[n].collisionDetection(enemy[i]);
     }
     for (int i = 0; i < enemy.length; i++)
     {
       // Display all enemies in array with loop
       enemy[i].display();
+    
       // Check for collision with all enemies in array
-      // player.collisionDetection(enemy[i]);
+      for (Bullet b:bulletList) {
+       b.collisionDetection(enemy[i]);
+     }
     }
     //function(); // second scene that you want to happen
     break;
