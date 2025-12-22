@@ -9,12 +9,8 @@
  // bulletList.add(new Bullet(player.x,player.y)); this part gives me a hassle
  // i tried restructing my code especially around player but with my limited knowledge i dont know to fix it right away
  
-
-
-
-
-
-
-
-
-// how to displayer amount of lives of screen
+ // notes of shoot 
+// enemies spawn too close to player at start
+// some enemies get stcuk on the wall 
+// some notes of lag sometimes when starting
+//bullets need to disappear when hitting a enemy to make the game more challenging

@@ -41,7 +41,7 @@ void draw () {
     break;
   case GAME:
 
-    background(255);
+    background(0);
     player.display();
     player.movement();
     for (int i = bulletList.size()
@@ -54,7 +54,7 @@ void draw () {
       }
     }
     // Display all enemies in array with loop
-      
+
     for (int i = 0; i < enemy.length; i++)
     {
       enemy[i].move();
@@ -63,6 +63,16 @@ void draw () {
       for (Bullet b : bulletList) {
         b.collisionDetection(enemy[i]);
       }
+      float d = dist(player.position.x,
+        player.position.y,
+        enemy[i].position.x,
+        enemy[i].position.y);
+      if (d < player.radius +
+        enemy[i].radius) {
+        mode=GameState.GAMEOVER;
+        break;
+      }
+      
     }
     break; // executes and jumps to the next statement after
     //function(); // second scene that you want to happen
@@ -91,6 +101,7 @@ void keyPressed() {
   }
   // if space is pressed and game over, go to title
   if (key == ' ' && mode == GameState.GAMEOVER) {
+    resetGame();
     start =true;
     mode = GameState.TITLE;
   }
@@ -150,14 +161,21 @@ void keyReleased() {
 }
 void TitleScreen() {
   background(0);
-  fill(255);
-  textSize(40);
-  text ("Insert Game \n Title here", width/2 - 100, height/2);
+  fill(0,255,0);
+  textSize(60);
+  text ("survival shoot", width/2 - 100, height/2);
 }
 
 void GameOver() {
   background(0);
-  fill(255);
+  fill(255,0,0);
   textSize(40);
   text ("Game Over", width/2 - 100, height/2);
+}
+void resetGame() {
+  player.position.set(width/2,height/2);
+  bulletList.clear();
+  for (int i = 0; i < enemy.length;
+    i++) {
+  }
 }

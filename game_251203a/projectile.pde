@@ -18,18 +18,17 @@ class Bullet {
     speed =15;
   }
 
- void collisionDetection(Enemy e) { 
+  void collisionDetection(Enemy e) {
 
     // Check distance between player and enemy
     // if dist is less than the sum of the player radius
     // and the enemy radius, collision has occurred
     float distance =  (dist(x, y, e.position.x, e.position.y));
     if (distance < d/2 + e.radius ) {
-       //return true; // I hit something
+      //return true; // I hit something
       e.position.x = 5000;
-     
     }
-   //return false; // I missed
+    //return false; // I missed
   }
   //collision occurs, move that enemy off screen
 

@@ -21,13 +21,13 @@ class Player {
   }
   void movement()
   {
-    if (up && position.y > radius) 
+    if (up && position.y > radius)
     {
       position.y-=speed;
     }
-    if (left && position.x > radius) 
+    if (left && position.x > radius)
     {
-      position.x-=speed; 
+      position.x-=speed;
     }
     if (down && position.y < height-radius)
     {
@@ -54,18 +54,18 @@ class Player {
 }
 
 //void playerScreenCollision() {
-  //  if (player.x > width-radius) {
-    //  player.x = width-radius;
-      //velocity.x *= -1;
-  //  } else if (player.x < radius) {
+//  if (player.x > width-radius) {
+//  player.x = width-radius;
+//velocity.x *= -1;
+//  } else if (player.x < radius) {
 //      player.x = radius;
-  //    velocity.x *= -1;
+//    velocity.x *= -1;
 //    } else if (player.y > height-radius) {
-  //    player.y = height-radius;
-  //    velocity.y *= -1;
- //   } else if (player.y < radius) {
-   //   player.y = radius;
-  //    velocity.y *= -1;
-    //}
+//    player.y = height-radius;
+//    velocity.y *= -1;
+//   } else if (player.y < radius) {
+//   player.y = radius;
+//    velocity.y *= -1;
+//}
 
 // methods are just functions that inside of classes
