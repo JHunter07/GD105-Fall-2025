@@ -1,19 +1,22 @@
 class Player {
-  PVector position = new PVector (100, 100);
+  PVector position;
   boolean up, down, left, right;
   float speed = 5;
   float radius = 25;
   int x;
   int y;
   int r;
-  Player(int playerPosX,int playerPosY,int playerPosR) {
-    x = playerPosX;
-    y = playerPosY;
-    r = playerPosR;
+  Player() {
+    position = new PVector(350,350);
+   // x = playerPosX;
+   // y = playerPosY;
+   // r = playerPosR;
   }
   void display() {
-    background(0); // setting background to black
-    circle (position.x, position.y, radius * 2);
+   // background(0); // setting background to black
+    //circle (position.x, position.y, radius * 2);
+    fill(0,255,0);
+    circle(position.x,position.y,radius*2);
   }
   void movement()
   {

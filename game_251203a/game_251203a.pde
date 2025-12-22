@@ -6,11 +6,11 @@ boolean shoot;
 ArrayList <Bullet> bulletList;
 float px = 200;
 float py=350;
+Player player;
 public enum GameState {
   TITLE, GAME, GAMEOVER
 }
 //PVector GameState;
-Player player;
 
 // [] means I'm creating an array
 // I now have an array of 10 enemies
@@ -20,7 +20,7 @@ Enemy [] enemy = new Enemy[10];
 void setup() {
   size(700, 700);
   background(255);
- // player  = new Player();
+  player = new Player();
 
   // For loop is used to cycle through the array of enemies
   for (int i = 0; i < enemy.length; i++)
@@ -42,6 +42,7 @@ void draw () {
     //fuction(); // whatever you want to happen first
     break;
   case GAME:
+  background(0);
     player.display();
     player.movement();
     for (int i = 0; i < enemy.length; i++)
@@ -122,7 +123,7 @@ void keyPressed() {
 
   if (key == ' ')
     shoot = true;
- // bulletList.add(new Bullet(player.x,player.y));
+  bulletList.add(new Bullet(player.position.x,player.position.y));
   //Projectile a = new projectile();
   //projectile = (Projectile []) append ( projectile, a);
 }

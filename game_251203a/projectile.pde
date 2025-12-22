@@ -3,28 +3,27 @@
 //PVector projectilePos = new PVector (0, -16);
 class Bullet {
   //variables
-  int x;
-  int y;
-  int d;
-  int speed;
+  float x;
+  float y;
+  float d;
+  float speed;
   //
- // float x,y;
  // float r =5;
-  Bullet(int startPosX, int startPosY) {
-    x = startPosX;
-    y = startPosY;
+  Bullet( float startX, float startY) {
+    x = startX;
+    y = startY;
 
     d=10;
 
     speed =15;
   }
-  void display() {
-    circle(x, y, d);
-  }
+  //void display() {
+ //   circle(x, y, d);
+ // }
 
-  void move() {
-    y-=speed; // saying y equals itself minus speed (y=y-speed)
-  }
+  //void move() {
+  //  y-=speed; // saying y equals itself minus speed (y=y-speed)
+ // }
   //this .x = x; this.y = y;}
   // void update() {
   //   y -= 10;
@@ -58,18 +57,17 @@ class Bullet {
   // }
   //   return false;
   // }
-
-
-
-  //collision occurs, move that enemy off screen
-
-
-  //void update() {y-=10;}
-  //void display(){
-  //   fill(255, 255, 0);
-  //  ellipse(x, y, 10, 10);
+ //collision occurs, move that enemy off screen
+ 
+  void display(){
+      fill(255, 255, 0);
+     ellipse(x, y, 10, 10);
   //  ellipse(x, y, r*2, r*2);
-  // }
+   }
+
+
+   void update() {y-=10;}
+   
 
   //}
 }
