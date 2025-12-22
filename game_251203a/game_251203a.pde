@@ -27,9 +27,7 @@ void setup() {
   {
     enemy[i] = new Enemy(new PVector (random(200, 700), random(100, 700)));
   }
-
   start =true;
-  //gameState = 0;
   bulletList = new ArrayList<Bullet>();
 }
 
@@ -42,33 +40,32 @@ void draw () {
     //fuction(); // whatever you want to happen first
     break;
   case GAME:
-  background(255);
+
+    background(255);
     player.display();
     player.movement();
     for (int i = bulletList.size()
-     -1; i >= 0; i--) {
+      -1; i >= 0; i--) {
       Bullet b = bulletList.get(i);
       b.update(); // Moves the bullet
       b.display(); // draws the bullet
-      if (b.y<0){
+      if (b.y<0) {
         bulletList.remove(i);
       }
-    //  for (n=0;n< bulletList.size()
-    // -1;i++) {
-    //   bulletList[n].collisionDetection(enemy[i]);
     }
+    // Display all enemies in array with loop
+      
     for (int i = 0; i < enemy.length; i++)
     {
-      // Display all enemies in array with loop
+      enemy[i].move();
       enemy[i].display();
-    
       // Check for collision with all enemies in array
-      for (Bullet b:bulletList) {
-       b.collisionDetection(enemy[i]);
-     }
+      for (Bullet b : bulletList) {
+        b.collisionDetection(enemy[i]);
+      }
     }
+    break; // executes and jumps to the next statement after
     //function(); // second scene that you want to happen
-    break;
   case GAMEOVER:
     GameOver();
     break;
@@ -78,26 +75,8 @@ void draw () {
   //println(mode);
 
   //println("DAFDSAF");
- // for (int i = bullets.size() -1; i >=
-  //  0; i--) {
- //   Bullet b = bullets . get(i);
- //     b.update();
- //      b.display();
- //   if (b.y<0);
-  //  bullets.remove(i);
- // }
-  //  if (Bullet.hits(e.positionx, e.position.y,e.radius)) {
-  // bullet.remove(i);
-  //  e = -500;
-  //  println("enemy destroyed");
-  // }
-  // remove it off screen
-  //  else if (ty < 0) {
-  //   bullets.remove(i);
-  // }
-
-  //}
 }
+
 void keyPressed() {
 
 
@@ -136,11 +115,13 @@ void keyPressed() {
     //p == gameState 1;
   }
 
-  if (key == ' ')
+  if (key == ' ') {
     shoot = true;
-  bulletList.add(new Bullet(player.position.x,player.position.y));
-  //Projectile a = new projectile();
-  //projectile = (Projectile []) append ( projectile, a);
+    bulletList.add(new
+      Bullet(player.position.x, player.position.y));
+    //Projectile a = new projectile();
+    //projectile = (Projectile []) append ( projectile, a);
+  }
 }
 
 

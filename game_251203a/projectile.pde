@@ -17,47 +17,19 @@ class Bullet {
 
     speed =15;
   }
-  //void display() {
-  //   circle(x, y, d);
-  // }
 
-  //void move() {
-  //  y-=speed; // saying y equals itself minus speed (y=y-speed)
-  // }
-  //this .x = x; this.y = y;}
-  // void update() {
-  //   y -= 10;
-  // }   // move upward
+ void collisionDetection(Enemy e) { 
 
-
-  //  Projectile() {
-  //  }
-  // void update() {y-=10;}
-  //  void display() {
-  //    fill(255, 255, 0);
-  //  ellipse(x, y, 10, 10);
-  //  ellipse(x, y, r*2, r*2);
-  //  fill(255, 255, 0);
-  //  ellipse(x, y, 10, 10);
-  //   noStroke();
-  //   fill(255);
-  //   circle(projectilePos.x, projectilePos.y, projectileUnit);
-  //   fill(0);
-  //  circle(projectilePos.x + projectileUnit/4, projectilePos.y + projectileUnit/4, projectileUnit/2);
-  //  }
-
-  void collisionDetection(Enemy e)
-  { 
-     // }
     // Check distance between player and enemy
     // if dist is less than the sum of the player radius
     // and the enemy radius, collision has occurred
     float distance =  (dist(x, y, e.position.x, e.position.y));
     if (distance < d/2 + e.radius ) {
-      //return true;
+       //return true; // I hit something
       e.position.x = 5000;
+     
     }
-    //    return false;
+   //return false; // I missed
   }
   //collision occurs, move that enemy off screen
 
@@ -67,11 +39,7 @@ class Bullet {
     //  ellipse(x, y, r*2, r*2);
   }
 
-
   void update() {
     y-=10;
   }
-
-
-  //}
 }
