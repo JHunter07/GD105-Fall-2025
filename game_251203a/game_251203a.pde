@@ -42,9 +42,18 @@ void draw () {
     //fuction(); // whatever you want to happen first
     break;
   case GAME:
-  background(0);
+  background(255);
     player.display();
     player.movement();
+    for (int i = bulletList.size()
+     -1; i >= 0; i--) {
+      Bullet b = bulletList.get(i);
+      b.update(); // Moves the bullet
+      b.display(); // draws the bullet
+      if (b.y<0){
+        bulletList.remove(i);
+      }
+    }
     for (int i = 0; i < enemy.length; i++)
     {
       // Display all enemies in array with loop
